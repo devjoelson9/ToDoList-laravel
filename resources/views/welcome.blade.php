@@ -10,7 +10,7 @@
     </head>
     <body>
         <h1>Bem vindo a minha rota de nomes</h1>
-        <p>{{$nome}}</p> 
+        <!-- <p>{{$nome}}</p> 
 
         @if($nome == "joelson")
             <p>o nome é {{$nome}} e o sobrenome é {{$sobrenome}} e a idade é {{$idade}} e trabalha como {{$profissao}}</p>
@@ -33,6 +33,10 @@
         @foreach($nomes as $nome)
             <p>{{$loop -> index}}</p>
             <p>{{$nome}}</p>
-        @endforeach
+        @endforeach -->
+
+        <p>{{ $name}}</p>
+
+
     </body>
 </html>
