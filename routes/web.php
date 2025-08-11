@@ -1,42 +1,23 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TarefaController;
 use Illuminate\Support\Facades\Route;
 
-/* Route::get('/', function () {
-    $nome = 'joelson';
-    $sobrenome = 'souza';
-    $idade = '19';
-    $profissao = 'backend';
-    $arr = [3, 6, 7, 9];
-    $nomes = ["jota", "jeff", "joel"];
+//Rota para exibir a pagina pricipal do toDo-List
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-    return view('welcome', [
-        'nome' => $nome, 
-        'sobrenome' => $sobrenome, 
-        'idade' => $idade, 
-        'profissao' => $profissao, 
-        'arr' => $arr, 
-        'nomes' => $nomes
-    ]);
-}); */
+//rota para listar as tarefas
+Route::get('minhasTarefas', [TarefaController::class, 'listarTarefas'])->name('tarefas.listar');
 
-/* Route::view('/teste', 'home', ['name' => 'GTA']); */
+//Rotas para criar a tarefa
+Route::get('/criarTarefa', [TarefaController::class, 'create'])->name('tarefas.create');
+Route::post('/criarTarefa', [TarefaController::class, 'store'])->name('tarefas.store');
 
-/* Route::get('/teste/{name?}', function($name = null){
-    return view('home', ['nomeJogo' => $name]);
-}) -> where('name', '[A-Za-z]+'); */
+Route::get('/tarefas/{tarefa}/editar', [TarefaController::class, 'edit'])->name('tarefas.edit');
 
-/* Route::get('/teste/{id?}/{name?}', function($id = null, $name = null){
-    return view('home', ['idJogo' => $id], ['nameJogo' => $name]);
-}) -> where('id', '[1-9]+', 'name', '[A-Za-z]+'); */
+// Rota para atualizar a tarefa no banco de dados (o formulário será enviado para cá)
+Route::put('/tarefas/{tarefa}', [TarefaController::class, 'update'])->name('tarefas.update');
 
-/* Route::get('/contato', function(){
-    return view('contact');
-})-> name('index'); */
-
-/* Route::get('/home', function(){
-    return view('home');
-}); */
-
-Route::get('/home', [HomeController::class, 'index']);
+//rota para deletar as tarefas
+Route::delete('/tarefas/{tarefa}', [TarefaController::class, 'destroy'])->name('tarefas.destroy');
