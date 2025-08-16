@@ -24,7 +24,6 @@ class TarefaController extends Controller{
             'data_vencimento' => $request->input('data-vencimento'),
             'importante' => $request->has('importante'),
         ]);
-
         return redirect()->route('home')->with('success', 'Tarefa criada com sucesso!');
     }
 
