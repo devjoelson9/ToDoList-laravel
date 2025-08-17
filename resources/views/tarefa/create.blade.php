@@ -22,7 +22,7 @@
             <div class="mb-6">
                 <label for="descricao" class="block mb-2 font-bold text-gray-600">Descrição (Opcional)</label>
                 <textarea id="descricao" name="descricao" placeholder="Detalhes adicionais da tarefa..."
-                        class="w-full p-3 border border-gray-300 rounded-lg resize-y min-h-[100px] focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    class="w-full p-3 border border-gray-300 rounded-lg resize-y min-h-[100px] focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
             </div>
             
             <div class="mb-6">
@@ -36,15 +36,19 @@
                     class="form-checkbox text-blue-600 h-5 w-5 rounded-sm">
                 <label for="importante" class="ml-2 text-gray-600 font-normal">Marcar como importante</label>
             </div>
-            
+
             <div class="flex justify-end space-x-3">
-                <button type="button" onclick="window.history.back()"
-                        class="bg-red-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-red-400 transition-colors">
+                <a href="{{ route('home') }}" 
+                    class="bg-red-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-400 transition-colors">
                     Cancelar
+                </a>
+
+                <button type="submit"
+                    class="bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">
+                    Adicionar
                 </button>
             </div>
         </form>
     </div>
 </body>
 </html>
-            

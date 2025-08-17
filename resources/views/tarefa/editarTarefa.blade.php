@@ -46,7 +46,7 @@
         
         <div class="flex justify-end space-x-3">
             <button type="button" onclick="window.history.back()"
-                    class="bg-gray-300 text-gray-800 font-bold py-3 px-6 rounded-lg hover:bg-gray-400 transition-colors">
+                    class="bg-red-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-red-300 transition-colors">
                 Cancelar
             </button>
             <button type="submit"
