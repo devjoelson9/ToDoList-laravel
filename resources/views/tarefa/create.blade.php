@@ -3,7 +3,7 @@
 @section('title', 'criar tarefa')
 
 @section('content')
-<div class="bg-white p-10 rounded-xl shadow-lg max-w-lg">
+<div class="bg-white p-20 rounded-xl shadow-lg max-w-lg">
     <h1 class="text-blue-600 text-center text-3xl font-bold mb-8">Adicionar Nova Tarefa</h1>
     
     <form action="{{ route('tarefas.store') }}" method="POST">

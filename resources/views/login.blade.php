@@ -12,7 +12,7 @@
     <form action="{{ route('login.attempt') }}" method="POST">
         @csrf
 
-        <x-input id="email" label="Email" name="email" required/>
+        <x-input type="email" id="email" label="Email" name="email" required/>
         
         <x-input type="password" id="password" label="Senha" name="password" required/>
 

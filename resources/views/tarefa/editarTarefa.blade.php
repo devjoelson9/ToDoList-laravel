@@ -13,25 +13,32 @@
     
     <form action="{{ route('tarefas.update', $tarefa->id) }}" method="POST">
         @csrf
-        @method('PUT')
+        @method('PUT') 
+        <x-inputCampo 
+            type="text" 
+            id="titulo" 
+            name="titulo" 
+            label="Título da tarefa" 
+            value="{{ old('titulo', $tarefa->titulo ?? '') }}" 
+        required/>
         
-        <div class="mb-6">
-            <label for="titulo" class="block mb-2 font-bold text-gray-600">Título da Tarefa</label>
-            <input type="text" id="titulo" name="titulo" value="{{ old('titulo', $tarefa->titulo) }}" required 
-                   class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-        </div>
+        <x-textAreaCampo 
+            type="text" 
+            id="descricao" 
+            name="descricao" 
+            label="Descrição (Opcional)" 
+            value="{{ old('descricao', $tarefa->descricao) }}" 
+        required/>
+
+        <x-inputCampo 
+            type="date" 
+            id="data-vencimento" 
+            name="data-vencimento" 
+            label="Data de Vencimento (Opcional)" 
+            value="{{ old('data-vencimento', $tarefa->data_vencimento) }}" 
+        required/>
         
-        <div class="mb-6">
-            <label for="descricao" class="block mb-2 font-bold text-gray-600">Descrição (Opcional)</label>
-            <textarea id="descricao" name="descricao" rows="4"
-                      class="w-full p-3 border border-gray-300 rounded-lg resize-y focus:outline-none focus:ring-2 focus:ring-blue-500">{{ old('descricao', $tarefa->descricao) }}</textarea>
-        </div>
         
-        <div class="mb-6">
-            <label for="data-vencimento" class="block mb-2 font-bold text-gray-600">Data de Vencimento (Opcional)</label>
-            <input type="date" id="data-vencimento" name="data-vencimento" value="{{ old('data-vencimento', $tarefa->data_vencimento) }}"
-                   class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-        </div>
         
         <div class="flex items-center mb-8">
             <input type="checkbox" id="importante" name="importante" {{ old('importante', $tarefa->importante) ? 'checked' : '' }} 
@@ -44,10 +51,9 @@
                     class="bg-red-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-red-300 transition-colors">
                 Cancelar
             </button>
-            <button type="submit"
-                    class="bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">
-                Salvar Alterações
-            </button>
+            <x-button>
+                salvar alterações
+</x-button>
         </div>
     </form>
 </div>
