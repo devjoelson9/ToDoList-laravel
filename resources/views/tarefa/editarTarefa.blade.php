@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Tarefa</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 flex justify-center items-center min-h-screen text-gray-800">
+@extends('layouts.app')
 
+@section('title', 'editar tarefa')
+
+@section('content')
 <div class="container bg-white p-10 rounded-xl shadow-lg max-w-lg w-full relative">
     <a href="{{ route('home') }}" class="absolute top-5 left-5 text-gray-700 bg-gray-200 px-4 py-2 rounded-lg font-bold hover:bg-gray-300 transition-colors">
         ← Início
@@ -56,6 +51,4 @@
         </div>
     </form>
 </div>
-
-</body>
-</html>
+@endsection

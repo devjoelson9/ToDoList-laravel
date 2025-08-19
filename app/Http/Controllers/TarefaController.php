@@ -18,25 +18,25 @@ class TarefaController extends Controller{
     }
 
     public function store(Request $request){
-    $validatedData = $request->validate([
-        'titulo' => 'required|string|max:255',
-        'descricao' => 'nullable|string',
-        'data-vencimento' => 'nullable|date',
-        'importante' => 'nullable',
-    ]);
+        $validatedData = $request->validate([
+            'titulo' => 'required|string|max:255',
+            'descricao' => 'nullable|string',
+            'data-vencimento' => 'nullable|date',
+            'importante' => 'nullable',
+        ]);
 
-    $importante = $request->has('importante');
+        $importante = $request->has('importante');
 
-    auth()->user()->tarefas()->create([
-        'titulo' => $validatedData['titulo'],
-        'descricao' => $validatedData['descricao'],
-        'data_vencimento' => $validatedData['data-vencimento'],
-        'importante' => $importante, 
-    ]);
+        auth()->user()->tarefas()->create([
+            'titulo' => $validatedData['titulo'],
+            'descricao' => $validatedData['descricao'],
+            'data_vencimento' => $validatedData['data-vencimento'],
+            'importante' => $importante, 
+        ]);
 
-    return redirect()->route('home')->with('success', 'Tarefa criada com sucesso!');
-}
-   
+        return redirect()->route('home')->with('success', 'Tarefa criada com sucesso!');
+    }
+    
 
     public function edit(Tarefa $tarefa){
         return view('tarefa.editarTarefa', compact('tarefa'));
